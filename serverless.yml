@@ -1,0 +1,41 @@
+service: toppredictorserverless
+
+plugins:
+  - serverless-offline
+    #  - serverless-webpack
+  # - serverless-bundle
+  - serverless-domain-manager
+
+package:
+  individually: true
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  memorySize: 256
+  versionFunctions: false
+  region: ${self:custom.aws_region}
+  stage: ${opt:stage, 'test'}
+  lambdaHashingVersion: "20201221"
+  environment: ${file(serverless/enivronment.yml)}
+functions:
+  - ${file(serverless/funcs.yml)}
+  - ${file(serverless/funcs_cron_contest.yml)}
+  - ${file(serverless/funcs_cron_cricket.yml)}
+  - ${file(serverless/funcs_cron_football.yml)}
+  - ${file(serverless/funcs_cron_icehockey.yml)}
+  - ${file(serverless/funcs_cron_basketball.yml)}
+  - ${file(serverless/funcs_cron_australianrules.yml)}
+  - ${file(serverless/funcs_cron_rugby.yml)}
+  - ${file(serverless/funcs_cron_soccer.yml)}
+  - ${file(serverless/funcs_cron_golf.yml)}
+  - ${file(serverless/funcs_cron_currency_layer.yml)}
+  - ${file(serverless/funcs_cron_finish_contest.yml)}
+  - ${file(serverless/funcs_cron_check_contest.yml)}
+  - ${file(serverless/func_cron_previous_matches_rugby.yml)}
+  - ${file(serverless/funcs_hexapay.yml)}
+  - ${file(serverless/funcs.yml)}
+
+custom: ${file(serverless/custom.yml)}
+# resources:
+# Resources: ${file(sls-resources.yml)}

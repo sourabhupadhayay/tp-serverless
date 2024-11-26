@@ -1,0 +1,8 @@
+cron_check_contest:
+  handler: src/handlers/crons/cron_check_contest.handler
+  timeout: 30
+  events:
+    - schedule: rate(10 minutes)
+    - http:
+        method: GET
+        path: /v1/check_contest

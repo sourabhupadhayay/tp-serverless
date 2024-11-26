@@ -1,0 +1,33 @@
+# Cricket
+cron_football_leagues:
+  handler: src/handlers/cron_football/cron_football_leagues.handler
+  timeout: 30
+  events:
+    - schedule: rate(1 hour)
+    - http:
+        method: GET
+        path: /v1/football/leagues
+cron_football_tasks:
+  handler: src/handlers/cron_football/cron_football_tasks.handler
+  timeout: 30
+  events:
+    - schedule: rate(1 minute)
+    - http:
+        method: GET
+        path: /v1/football/tasks
+cron_football_results:
+  handler: src/handlers/cron_football/cron_football_results.handler
+  timeout: 30
+  events:
+    - schedule: rate(3 minutes)
+    - http:
+        method: GET
+        path: /v1/football/results
+cron_football_odds:
+  handler: src/handlers/cron_football/cron_football_odds.handler
+  timeout: 30
+  events:
+    - schedule: rate(3 minutes)
+    - http:
+        method: GET
+        path: /v1/football/odds

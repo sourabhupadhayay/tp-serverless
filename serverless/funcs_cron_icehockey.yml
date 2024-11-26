@@ -1,0 +1,56 @@
+cron_icehockey_leagues:
+  handler: src/handlers/cron_icehockey/cron_icehockey_leagues.handler
+  timeout: 30
+  events:
+    - schedule: rate(2 hours)
+    - http:
+        method: GET
+        path: /v1/icehockey/leagues
+cron_icehockey_results:
+  handler: src/handlers/cron_icehockey/cron_icehockey_results.handler
+  timeout: 30
+  events:
+    - schedule: rate(1 minute)
+    - http:
+        method: GET
+        path: /v1/icehockey/results
+cron_icehockey_odds:
+  handler: src/handlers/cron_icehockey/cron_icehockey_odds.handler
+  timeout: 30
+  events:
+    - schedule: rate(1 minute)
+    - http:
+        method: GET
+        path: /v1/icehockey/odds
+cron_icehockey_tasks:
+  handler: src/handlers/cron_icehockey/cron_icehockey_tasks.handler
+  timeout: 30
+  events:
+    - schedule: rate(1 minute)
+    - http:
+        method: GET
+        path: /v1/icehockey/tasks
+cron_icehockey_tasks_v2:
+  handler: src/handlers/cron_icehockey/cron_icehockey_tasks_v2.handler
+  timeout: 30
+  events:
+    - schedule: rate(1 minute)
+    - http:
+        method: GET
+        path: /v1/icehockey/tasks_v2
+cron_icehockey_injuries_proccess:
+  handler: src/handlers/cron_icehockey/cron_icehockey_injuries_proccess.handler
+  timeout: 30
+  events:
+    - schedule: rate(12 hours)
+    - http:
+        method: GET
+        path: /v1/icehockey/injuries_process
+cron_icehockey_get_injuries:
+  handler: src/handlers/cron_icehockey/cron_icehockey_get_injuries.handler
+  timeout: 30
+  events:
+    - schedule: rate(1 minute)
+    - http:
+        method: GET
+        path: /v1/icehockey/get_injuries

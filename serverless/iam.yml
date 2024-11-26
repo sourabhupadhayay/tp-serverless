@@ -1,0 +1,29 @@
+role:
+  statements:
+    # Lambda Invoke
+    - Effect: Allow
+      Action:
+        - lambda:InvokeFunction
+      Resource: "*"
+    # Cognito
+    - Effect: "Allow"
+      Action:
+        - cognito-idp:*
+      Resource:
+        - arn:aws:cognito-idp:eu-west-1:357018673694:userpool/eu-west-1_hYe6GwJhp
+        - arn:aws:cognito-idp:eu-west-1:357018673694:userpool/eu-west-1_Y8WvortyA
+        - arn:aws:cognito-idp:eu-west-1:357018673694:userpool/eu-west-1_HnPsW5C7T
+    # S3
+    - Effect: "Allow"
+      Action:
+        - s3:*
+      Resource:
+        - "arn:aws:s3:::swifty-global-app-assets/*"
+        - "arn:aws:s3:::swifty-global-app-assets-private/*"
+    # SES
+    - Effect: "Allow"
+      Action:
+        - "ses:SendEmail"
+        - "ses:SendRawEmail"
+      Resource:
+        - "arn:aws:ses:us-east-1:357018673694:identity/no-reply@swifty.global"

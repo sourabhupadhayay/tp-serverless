@@ -1,0 +1,81 @@
+stages:
+  - hotfix
+  - dev
+  - test
+  - prod
+# MYSQL
+mysql_host:
+  hotfix: toppredictor-dev.covxq2xvjlzp.eu-west-1.rds.amazonaws.com
+  dev: toppredictor-dev.covxq2xvjlzp.eu-west-1.rds.amazonaws.com
+  test: toppredictor-dev.covxq2xvjlzp.eu-west-1.rds.amazonaws.com
+  prod: toppredictor-prod.covxq2xvjlzp.eu-west-1.rds.amazonaws.com
+mysql_database:
+  hotfix: toppredictor_dev
+  dev: toppredictor_dev
+  test: toppredictor_test
+  prod: toppredictor_prod
+mysql_username:
+  hotfix: tpuser_dev
+  dev: tpuser_dev
+  test: tpuser_dev
+  prod: admin
+mysql_password:
+  hotfix: vg6CV6cYY8dtB858
+  dev: vg6CV6cYY8dtB858
+  test: vg6CV6cYY8dtB858
+  prod: QghsVnWv6BJCn4HMBwSAQKkVYyNQ5Z
+# AWS
+currencylayer_key: 4ca3a23507aa003743f0b847042a363a
+aws_region: ap-south-1
+aws_default_region: ap-south-1
+domain:
+  hotfix: http://localhost
+  test: https://test.toppredictor.com
+  dev: https://staging.toppredictor.com
+  prod: https://toppredictor.com
+cron_url:
+  hotfix: http://localhost
+  test: https://api-test.toppredictor.com
+  dev: https://api-staging.toppredictor.com
+  prod: https://api.toppredictor.com
+#SEND GRID SECRET KEY
+send_grid_secret_key: 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
+webpack:
+  webpackConfig: ./webpack.config.js
+  packager: "npm"
+  includeModules: false
+  #  esbuild: false
+domain_lambda:
+  hotfix: api2-hotfix.toppredictor.com
+  test: api2-test.toppredictor.com
+  dev: api2-staging.toppredictor.com
+  prod: api2.toppredictor.com
+customDomain:
+  domainName: ${self:custom.domain_lambda.${self:provider.stage}}
+  basePath: "main"
+  stage: ${self:provider.stage}
+  createRoute53Record: true
+  # for edge, certificateArn must be create on us-east-1 Region (US East (N. Virginia)).
+  endpointType: edge
+  hostedZoneId: Z030899735GHSDLK6Y7E1
+  certificateArn: arn:aws:acm:us-east-1:842259768932:certificate/710bf01d-5273-40da-b769-f061c003fc32
+sumsub_base_url:
+  hotfix: https://api.sumsub.com
+  test: https://api.sumsub.com
+  dev: https://api.sumsub.com
+  prod: https://api.sumsub.com
+sumsub_secret_key:
+  hotfix: X2ZlUCc3ktHHh55yq1QyLdJ6gI8f4Tww
+  test: X2ZlUCc3ktHHh55yq1QyLdJ6gI8f4Tww
+  dev: X2ZlUCc3ktHHh55yq1QyLdJ6gI8f4Tww
+  prod: 57PNpQSiqy5LajlIOp26Zt2r4RFU9fRM
+sumsub_webhook_secret_key:
+  hotfix: yqt1pnlmhh1wmdbsoeyt4g0ro40
+  test: 54tu2m57kfi4mpotd9st88oro6k
+  dev: 54tu2m57kfi4mpotd9st88oro6k
+  prod: 8at3vwe2icm8efa9d8ne6oi8wkt
+sumsub_app_token:
+  hotfix: sbx:4SXvr0qQ2l5QdHEOgZukDU9l.SqVXCS9wQGTzSZO91aPqHT7BQ7TMNUKJ
+  test: sbx:4SXvr0qQ2l5QdHEOgZukDU9l.SqVXCS9wQGTzSZO91aPqHT7BQ7TMNUKJ
+  dev: sbx:4SXvr0qQ2l5QdHEOgZukDU9l.SqVXCS9wQGTzSZO91aPqHT7BQ7TMNUKJ
+  prod: prd:mf2ytnmSgDoJqvTinbIt2PTN.LpsSI3g2hN5Pr5nzijDwWoeZyaCWvnXU

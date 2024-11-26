@@ -1,0 +1,26 @@
+test:
+  handler: src/handlers/test.handler
+  events:
+    - http:
+        method: GET
+        path: /v1/test
+getExchange:
+  handler: src/handlers/exchange/getExchange.handler
+  events:
+    - http:
+        method: GET
+        path: /v1/get_exchange
+        cors: true
+userKYCGetAccessToken:
+  handler: src/handlers/sumsub/userKYCGetAccessToken.handler
+  events:
+    - http:
+        method: GET
+        path: /v1/user_kyc_get_acess_token
+        cors: true
+userKYCWebhook:
+  handler: src/handlers/sumsub/userKYCWebhook.handler
+  events:
+    - http:
+        method: POST
+        path: /v1/user_kyc_webhook

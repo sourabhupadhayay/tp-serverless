@@ -1,0 +1,80 @@
+cron_contest_live:
+  handler: src/handlers/cron_contest/cron_contest_live.handler
+  timeout: 30
+  events:
+    - schedule: rate(5 minutes)
+    - http:
+        method: GET
+        path: /v1/contest/live
+cron_contest_cancellation:
+  handler: src/handlers/cron_contest/cron_contest_cancellation.handler
+  timeout: 30
+  events:
+    - schedule: rate(5 minutes)
+    - http:
+        method: GET
+        path: /v1/contest/cancellation
+cron_contest_clear_user_bot:
+  handler: src/handlers/cron_contest/cron_contest_clear_user_bot.handler
+  timeout: 30
+  events:
+    - schedule: rate(5 minutes)
+    - http:
+        method: GET
+        path: /v1/contest/clear_user_blackout_time
+cron_contest_winner:
+  handler: src/handlers/cron_contest/cron_contest_winner.handler
+  timeout: 30
+  events:
+    - schedule: rate(5 minutes)
+    - http:
+        method: GET
+        path: /v1/contest/winner
+cron_golf_contest_winner:
+  handler: src/handlers/cron_contest/cron_golf_contest_winner.handler
+  timeout: 30
+  events:
+    - schedule: rate(5 minutes)
+    - http:
+        method: GET
+        path: /v1/contest/golf_winner
+cron_contest_predictions:
+  handler: src/handlers/cron_contest/cron_contest_predictions.handler
+  timeout: 30
+  events:
+    - schedule: rate(1 minute)
+    - http:
+        method: GET
+        path: /v1/contest/predictions/result
+cron_contest_user_points:
+  handler: src/handlers/cron_contest/cron_contest_user_points.handler
+  timeout: 30
+  events:
+    - schedule: rate(1 minute)
+    - http:
+        method: GET
+        path: /v1/contest/user/points
+cron_golf_contest_user_points:
+  handler: src/handlers/cron_contest/cron_golf_contest_user_points.handler
+  timeout: 30
+  events:
+    - schedule: rate(1 minute)
+    - http:
+        method: GET
+        path: /v1/contest/user/golf_points
+cron_contest_finishedAllMatches:
+  handler: src/handlers/cron_contest/cron_contest_finishedAllMatches.handler
+  timeout: 30
+  events:
+    - schedule: rate(1 minute)
+    - http:
+        method: GET
+        path: /v1/contest/finishedAllMatches
+cron_delete_postp_games:
+  handler: src/handlers/cron_contest/cron_delete_postp_games.handler
+  timeout: 30
+  events:
+    - schedule: rate(10 minutes)
+    - http:
+        method: GET
+        path: /v1/contest/cron_delete_postp_games

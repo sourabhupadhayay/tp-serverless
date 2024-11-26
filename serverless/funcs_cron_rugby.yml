@@ -1,0 +1,41 @@
+# Rugby
+cron_rugby_results:
+  handler: src/handlers/cron_rugby/cron_rugby_results.handler
+  timeout: 30
+  events:
+    - schedule: rate(3 minutes)
+    - http:
+        method: GET
+        path: /v1/rugby/results
+cron_rugby_tasks:
+  handler: src/handlers/cron_rugby/cron_rugby_tasks.handler
+  timeout: 30
+  events:
+    - schedule: rate(1 minute)
+    - http:
+        method: GET
+        path: /v1/rugby/tasks
+cron_rugby_leagues:
+  handler: src/handlers/cron_rugby/cron_rugby_leagues.handler
+  timeout: 30
+  events:
+    - schedule: rate(1 hour)
+    - http:
+        method: GET
+        path: /v1/rugby/leagues
+cron_rugby_odds:
+  handler: src/handlers/cron_rugby/cron_rugby_odds.handler
+  timeout: 30
+  events:
+    - schedule: rate(3 minutes)
+    - http:
+        method: GET
+        path: /v1/rugby/odds
+cron_rugby_tasks_v2:
+  handler: src/handlers/cron_rugby/cron_rugby_tasks_v2.handler
+  timeout: 30
+  events:
+    - schedule: rate(1 minute)
+    - http:
+        method: GET
+        path: /v1/rugby/tasks_v2

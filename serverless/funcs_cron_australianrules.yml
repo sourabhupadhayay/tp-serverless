@@ -1,0 +1,32 @@
+cron_australianrules_leagues:
+  handler: src/handlers/cron_australianrules/cron_australianrules_leagues.handler
+  timeout: 30
+  events:
+    - schedule: rate(3 hours)
+    - http:
+        method: GET
+        path: /v1/australianrules/all_leagues
+cron_australianrules_tasks:
+  handler: src/handlers/cron_australianrules/cron_australianrules_tasks.handler
+  timeout: 30
+  events:
+    - schedule: rate(1 minute)
+    - http:
+        method: GET
+        path: /v1/australianrules/tasks
+cron_australianrules_results:
+  handler: src/handlers/cron_australianrules/cron_australianrules_results.handler
+  timeout: 30
+  events:
+    - schedule: rate(5 minutes)
+    - http:
+        method: GET
+        path: /v1/australianrules/league/results
+cron_australianrules_OS:
+  handler: src/handlers/cron_australianrules/cron_australianrules_OS.handler
+  timeout: 30
+  events:
+    - schedule: rate(1 minute)
+    - http:
+        method: GET
+        path: /v1/australianrules/odds

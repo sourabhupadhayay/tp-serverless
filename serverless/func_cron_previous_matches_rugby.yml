@@ -1,0 +1,16 @@
+insertPreviousMatchesTask:
+  handler: src/handlers/crons/insertPreviousMatchesTask.handler
+  timeout: 30
+  events:
+    - schedule: rate(1 day)
+    - http:
+        method: GET
+        path: /v1/insert_previous_matches_background_process
+getPreviousMatchesRugby:
+  handler: src/handlers/crons/getPreviousMatchesRugby.handler
+  timeout: 30
+  events:
+    - schedule: rate(3 minutes)
+    - http:
+        method: GET
+        path: /v1/get_previous_matches_rugby_australian_rules

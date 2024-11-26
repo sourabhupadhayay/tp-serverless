@@ -1,0 +1,8 @@
+cron_currencies:
+  handler: src/handlers/crons/cron_currencies.handler
+  timeout: 30
+  events:
+    - schedule: rate(1 day)
+    - http:
+        method: GET
+        path: /v1/currencies

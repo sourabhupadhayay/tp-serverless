@@ -1,0 +1,56 @@
+cron_basketball_leagues:
+  handler: src/handlers/cron_basketball/cron_basketball_leagues.handler
+  timeout: 30
+  events:
+    - schedule: rate(2 hours)
+    - http:
+        method: GET
+        path: /v1/basketball/leagues
+cron_basketball_results:
+  handler: src/handlers/cron_basketball/cron_basketball_results.handler
+  timeout: 30
+  events:
+    - schedule: rate(1 minute)
+    - http:
+        method: GET
+        path: /v1/basketball/results
+cron_basketball_odds:
+  handler: src/handlers/cron_basketball/cron_basketball_odds.handler
+  timeout: 30
+  events:
+    - schedule: rate(1 minute)
+    - http:
+        method: GET
+        path: /v1/basketball/odds
+cron_basketball_tasks:
+  handler: src/handlers/cron_basketball/cron_basketball_tasks.handler
+  timeout: 30
+  events:
+    - schedule: rate(1 minute)
+    - http:
+        method: GET
+        path: /v1/basketball/tasks
+cron_basketball_set_odds:
+  handler: src/handlers/cron_basketball/cron_basketball_set_odds.handler
+  timeout: 30
+  events:
+    - schedule: rate(1 minute)
+    - http:
+        method: GET
+        path: /v1/basketball/set_odds
+cron_basketball_injuries_proccess:
+  handler: src/handlers/cron_basketball/cron_basketball_injuries_proccess.handler
+  timeout: 30
+  events:
+    - schedule: rate(12 hours)
+    - http:
+        method: GET
+        path: /v1/basketball/injuries_process
+cron_basketball_get_injuries:
+  handler: src/handlers/cron_basketball/cron_basketball_get_injuries.handler
+  timeout: 30
+  events:
+    - schedule: rate(1 minute)
+    - http:
+        method: GET
+        path: /v1/basketball/get_injuries

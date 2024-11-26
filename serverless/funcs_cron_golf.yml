@@ -1,0 +1,32 @@
+cron_golf_players:
+  handler: src/handlers/cron_golf/cron_golf_players.handler
+  timeout: 30
+  events:
+    - schedule: rate(3 hours)
+    - http:
+        method: GET
+        path: /v1/golf/golf_players
+cron_golf_result:
+  handler: src/handlers/cron_golf/cron_golf_result.handler
+  timeout: 30
+  events:
+    - schedule: rate(10 minutes)
+    - http:
+        method: GET
+        path: /v1/golf/result
+cron_golf_tasks:
+  handler: src/handlers/cron_golf/cron_golf_tasks.handler
+  timeout: 30
+  events:
+    - schedule: rate(3 hours)
+    - http:
+        method: GET
+        path: /v1/golf/tasks
+cron_golf_tour:
+  handler: src/handlers/cron_golf/cron_golf_tour.handler
+  timeout: 30
+  events:
+    - schedule: rate(6 hours)
+    - http:
+        method: GET
+        path: /v1/golf/tour

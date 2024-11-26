@@ -1,0 +1,38 @@
+hexapay_iframe:
+  handler: src/handlers/hexapay/hexapay_iframe.handler
+  events:
+    - http:
+        method: GET
+        path: /v1/hexapay_iframe/{token}
+
+hexapay_payment_callback_get:
+  handler: src/handlers/hexapay/hexapay_payment_callback_get.handler
+  events:
+    - http:
+        method: GET
+        path: /v1/hexapay_payment_callback
+hexapay_payment_callback_post:
+  handler: src/handlers/hexapay/hexapay_payment_callback_post.handler
+  events:
+    - http:
+        method: POST
+        path: /v1/hexapay_payment_callback
+
+hexapay_interac_payment_callback:
+  handler: src/handlers/hexapay/hexapay_interac_payment_callback.handler
+  events:
+    - http:
+        method: GET
+        path: /v1/hexapay_interac_payment_callback
+    - http:
+        method: POST
+        path: /v1/hexapay_interac_payment_callback
+hexapay_interac_withdraw_callback:
+  handler: src/handlers/hexapay/hexapay_interac_withdraw_callback.handler
+  events:
+    - http:
+        method: GET
+        path: /v1/hexapay_interac_withdraw_callback
+    - http:
+        method: POST
+        path: /v1/hexapay_interac_withdraw_callback

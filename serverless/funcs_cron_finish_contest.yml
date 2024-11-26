@@ -1,0 +1,8 @@
+cron_finish_contest:
+  handler: src/handlers/crons/cron_finish_contest.handler
+  timeout: 30
+  events:
+    - schedule: rate(1 day)
+    - http:
+        method: GET
+        path: /v1/finish_contest

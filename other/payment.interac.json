@@ -1,0 +1,25 @@
+{
+    "url": "POST https://api.hexopay.com/beyag/transactions/payment",
+    "request": {
+        "amount": 100,
+        "currency": "CAD",
+        "description": "My description",
+        "test": true,
+        "tracking_id": "your_uniq_number",
+        "language": "en",
+        "ip": "127.0.0.1",
+        "notification_url": "https://localhost:3000",
+        "return_url": "https://localhost:3000",
+        "customer": {
+            "first_name": "John",
+            "last_name": "Doe",
+            "email": "john.die@mail.com",
+            "phone": "1236789"
+        },
+        "method": {
+            "type": "interac",
+            "login_id": "our_user_id",
+            "channel": "ETI"
+        }
+    }
+}

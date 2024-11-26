@@ -1,0 +1,15 @@
+stage: ${self:provider.stage}
+mysql_host: ${self:custom.mysql_host.${self:provider.stage}}
+mysql_database: ${self:custom.mysql_database.${self:provider.stage}}
+mysql_general_database: swiftyglobal_general
+mysql_username: ${self:custom.mysql_username.${self:provider.stage}}
+mysql_password: ${self:custom.mysql_password.${self:provider.stage}}
+aws_region: ${self:custom.aws_region}
+domain: ${self:custom.domain.${self:provider.stage}}
+cron_url: ${self:custom.cron_url.${self:provider.stage}}
+send_grid_secret_key: ${self:custom.send_grid_secret_key}
+currencylayer_key: ${self:custom.currencylayer_key}
+sumsub_base_url: ${self:custom.sumsub_base_url.${self:provider.stage}}
+sumsub_secret_key: ${self:custom.sumsub_secret_key.${self:provider.stage}}
+sumsub_app_token: ${self:custom.sumsub_app_token.${self:provider.stage}}
+sumsub_webhook_secret_key: ${self:custom.sumsub_webhook_secret_key.${self:provider.stage}}

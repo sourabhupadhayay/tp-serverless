@@ -1,0 +1,56 @@
+cron_soccer_leagues:
+  handler: src/handlers/cron_soccer/cron_soccer_leagues.handler
+  timeout: 30
+  events:
+    - schedule: rate(3 hours)
+    - http:
+        method: GET
+        path: /v1/soccer/all_leagues
+cron_soccer_tasks:
+  handler: src/handlers/cron_soccer/cron_soccer_tasks.handler
+  timeout: 30
+  events:
+    - schedule: rate(1 minute)
+    - http:
+        method: GET
+        path: /v1/soccer/tasks
+cron_soccer_results:
+  handler: src/handlers/cron_soccer/cron_soccer_results.handler
+  timeout: 30
+  events:
+    - schedule: rate(5 minutes)
+    - http:
+        method: GET
+        path: /v1/soccer/league/results
+cron_soccer_odds_settelments:
+  handler: src/handlers/cron_soccer/cron_soccer_odds_settelments.handler
+  timeout: 30
+  events:
+    - schedule: rate(1 minute)
+    - http:
+        method: GET
+        path: /v1/soccer/odds
+cron_soccer_h2h:
+  handler: src/handlers/cron_soccer/cron_soccer_h2h.handler
+  timeout: 30
+  events:
+    - schedule: rate(1 minute)
+    - http:
+        method: GET
+        path: /v1/soccer/h2h
+cron_soccer_news_injury:
+  handler: src/handlers/cron_soccer/cron_soccer_news_injury.handler
+  timeout: 30
+  events:
+    - schedule: rate(1 hour)
+    - http:
+        method: GET
+        path: /v1/soccer/news_injury
+cron_soccer_playing_squads:
+  handler: src/handlers/cron_soccer/cron_soccer_playing_squads.handler
+  timeout: 30
+  events:
+    - schedule: rate(10 minutes)
+    - http:
+        method: GET
+        path: /v1/soccer/playing_squads
